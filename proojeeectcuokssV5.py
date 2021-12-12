@@ -404,25 +404,7 @@ def drawBitmapText(string, x, y, z):
             glutBitmapCharacter(gl.GLUT_BITMAP_TIMES_ROMAN_24, ord(karakter))
 
 
-def text_score():
-    global text
-    text = False
-    drawBitmapText("NEXT", 1300, 50, 0)
-
-
-def balok():
-    glColor3ub(240, 10, 29)
-    glBegin(GL_LINE_LOOP)
-    glVertex2f(1290, 30)
-    glVertex2f(1290, 130)
-    glVertex2f(1540, 130)
-    glVertex2f(1540, 30)
-    glEnd()
-
-
 def start():
-    balok()
-    text_score()
 
     # M berwarna
     glColor3ub(240, 10, 29)
@@ -791,29 +773,8 @@ def start():
     glEnd()
 
 
-def drawBitmapText1(string, x, y, z):
-    global text
-    if text == True:
-        glRasterPos3f(x, y, z)
-        for karakter in string:
-            glColor3ub(0, 76, 207)
-            glutBitmapCharacter(gl.GLUT_BITMAP_TIMES_ROMAN_24, ord(karakter))
-    elif text == False:
-        glRasterPos3f(x, y, z)
-        for karakter in string:
-            glColor3ub(255, 255, 255)
-            glutBitmapCharacter(gl.GLUT_BITMAP_TIMES_ROMAN_24_, ord(karakter))
-
-# def text_score1():
-#     global text
-#     text = False
-#     drawBitmapText1(" " ,1300,600,0)
-#     drawBitmapText1("M" ,1300,600,0)
-
-
 def menu():
-    # text_score1()
-    # M
+
     glColor3ub(235, 232, 52)
     glBegin(GL_LINE_LOOP)
     glVertex2f(100, 1150)
@@ -931,22 +892,8 @@ def menu():
     glVertex2f(1200, 1150)
     glEnd()
 
-    # quit
-    # glPushMatrix()
-    # glColor3ub(255, 255, 0)
-    # glBegin(GL_POLYGON)
-    # glVertex2f(60,500)
-    # glVertex2f(20,460)
-    # glVertex2f(20,340)
-    # glVertex2f(60,300)
-    # glVertex2f(200,300)
-    # glVertex2f(240,340)
-    # glVertex2f(240,460)
-    # glVertex2f(200,500)
-    # glEnd()
-    # glPopMatrix()
 
-    # Play out
+    # Play kotak
 
     glColor3ub(255, 255, 0)
     glBegin(GL_POLYGON)
@@ -956,22 +903,13 @@ def menu():
     glVertex2f(600, 600)
     glEnd()
 
-    # Play in
+    # Play segitiga
     glColor3ub(235, 0, 0)
     glBegin(GL_POLYGON)
     glVertex2f(740, 760)
     glVertex2f(880, 700)
     glVertex2f(740, 640)
     glEnd()
-
-# def win():
-#     glColor3ub(66, 245, 96)
-#     glBegin(GL_POLYGON)
-#     glVertex2f(0, 750)
-#     glVertex2f(0, 0)
-#     glVertex2f(0, 600)
-#     glVertex2f(0, 600)
-#     glEnd()
 
 
 def on_click(button, state, x, y):
@@ -992,7 +930,7 @@ def on_click(button, state, x, y):
 
 
 def display():
-    global mode, nyawa, pos_x, pos_y, restart
+    global mode, nyawa, pos_x, pos_y, restart, text
     glClear(GL_COLOR_BUFFER_BIT)
     glPushMatrix()
     if mode == 0:
@@ -1003,7 +941,6 @@ def display():
         menu()
     elif mode == 2:
         kotak()
-        # kotakmusuh()
         glPopMatrix()
         maze()
         maze1()
@@ -1071,10 +1008,6 @@ def input_keyboard(key, x, y):
             print('Menabrak Dinding!')
             nyawa -= 1
             print('Nyawa anda sisa :', nyawa)
-            # if nyawa == 0:
-            #     text = False
-            #     drawBitmapText("NEXT", 1300, 50, 0)
-            #     print('\nGAME OVER!\n')
         elif pos_x == 1550 and pos_y == 1400:
             print('You Win!')
         else:
