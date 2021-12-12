@@ -2,6 +2,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 import random
+import OpenGL.GLUT as gl
 
 sphere_locations = [(0, 0)]
 # Koordinat x dan y untuk posisi kotak
@@ -387,8 +388,292 @@ def maze3():
 
     glEnd()
 
+def drawBitmapText(string,x,y,z) :
+    global text
+    if text == True :
+        glRasterPos3f(x,y,z)
+        for karakter in string :
+            glColor3ub(0, 76, 207)
+            glutBitmapCharacter(gl.GLUT_BITMAP_TIMES_ROMAN_24,ord(karakter))
+    elif text == False :
+        glRasterPos3f(x,y,z)
+        for karakter in string :
+            glColor3ub(255,255,255)
+            glutBitmapCharacter(gl.GLUT_BITMAP_TIMES_ROMAN_24,ord(karakter))
+
+def text_score():
+    global text
+    text = False
+    drawBitmapText(" " ,1300,50,0)
+    drawBitmapText("NEXT" ,1300,50,0)
+def balok():
+    glColor3ub(240, 10, 29)
+    glBegin(GL_LINE_LOOP)
+    glVertex2f(1290, 30)
+    glVertex2f(1290, 130)
+    glVertex2f(1540, 130)
+    glVertex2f(1540, 30)
+    glEnd()
+
 
 def start():
+    balok()
+    text_score()
+
+    #M berwarna
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(102, 1000)
+    glVertex2f(102, 1500)
+    glVertex2f(198, 1500)
+    glVertex2f(198, 1000)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(198, 1405)
+    glVertex2f(198, 1500)
+    glVertex2f(394, 1500)
+    glVertex2f(394, 1405)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(305, 1205)
+    glVertex2f(305, 1407)
+    glVertex2f(394, 1407)
+    glVertex2f(394, 1205)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(394, 1205)
+    glVertex2f(394, 1300)
+    glVertex2f(600, 1300)
+    glVertex2f(600, 1205)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(405, 1100)
+    glVertex2f(405, 1205)
+    glVertex2f(496, 1205)
+    glVertex2f(496, 1100)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(505, 1205)
+    glVertex2f(505, 1407)
+    glVertex2f(600, 1407)
+    glVertex2f(600, 1205)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(505, 1405)
+    glVertex2f(505, 1500)
+    glVertex2f(700, 1500)
+    glVertex2f(700, 1405)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(696, 1000)
+    glVertex2f(696, 1500)
+    glVertex2f(796, 1500)
+    glVertex2f(796, 1000)
+    glEnd()
+     
+    #A warna
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(1002, 1400)
+    glVertex2f(1002, 1500)
+    glVertex2f(1398, 1500)
+    glVertex2f(1398, 1400)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(1002, 1300)
+    glVertex2f(1002, 1404)
+    glVertex2f(1100, 1404)
+    glVertex2f(1100, 1300)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(897, 1000)
+    glVertex2f(897, 1404)
+    glVertex2f(1002, 1404)
+    glVertex2f(1002, 1000)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(1300, 1300)
+    glVertex2f(1300, 1404)
+    glVertex2f(1398, 1404)
+    glVertex2f(1398, 1300)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(1398, 1000)
+    glVertex2f(1398, 1404)
+    glVertex2f(1500, 1404)
+    glVertex2f(1500, 1000)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(1398, 997)
+    glVertex2f(1398, 1100)
+    glVertex2f(1202, 1100)
+    glVertex2f(1202, 997)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(1300, 1100)
+    glVertex2f(1300, 1200)
+    glVertex2f(1100, 1200)
+    glVertex2f(1100, 1100)
+    glEnd()
+
+    #Z berwarna
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(800, 900)
+    glVertex2f(800, 800)
+    glVertex2f(100, 800)
+    glVertex2f(100, 900)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(700, 600)
+    glVertex2f(700, 800)
+    glVertex2f(600, 800)
+    glVertex2f(600, 600)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(600, 500)
+    glVertex2f(600, 700)
+    glVertex2f(500, 700)
+    glVertex2f(500, 500)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(500, 500)
+    glVertex2f(500, 600)
+    glVertex2f(400, 600)
+    glVertex2f(400, 500)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(500, 400)
+    glVertex2f(500, 500)
+    glVertex2f(300, 500)
+    glVertex2f(300, 400)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(300, 300)
+    glVertex2f(300, 500)
+    glVertex2f(200, 500)
+    glVertex2f(200, 300)
+    glEnd()
+
+    glColor3ub(235, 232, 52)
+    glBegin(GL_QUADS)
+    glVertex2f(100, 200)
+    glVertex2f(100, 300)
+    glVertex2f(800, 300)
+    glVertex2f(800, 200)
+    glEnd()
+
+    #E warna
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(900, 206)
+    glVertex2f(900, 900)
+    glVertex2f(1000, 900)
+    glVertex2f(1000, 206)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(1000, 800)
+    glVertex2f(1000, 900)
+    glVertex2f(1500, 900)
+    glVertex2f(1500, 800)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(1100, 700)
+    glVertex2f(1100, 800)
+    glVertex2f(1206, 800)
+    glVertex2f(1206, 700)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(1000, 406)
+    glVertex2f(1000, 600)
+    glVertex2f(1100, 600)
+    glVertex2f(1100, 406)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(1000, 506)
+    glVertex2f(1000, 600)
+    glVertex2f(1500, 600)
+    glVertex2f(1500, 506)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(1500, 406)
+    glVertex2f(1500, 506)
+    glVertex2f(1400, 506)
+    glVertex2f(1400, 406)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(1400, 600)
+    glVertex2f(1400, 700)
+    glVertex2f(1300, 700)
+    glVertex2f(1300, 600)
+    glEnd()
+
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(1000, 206)
+    glVertex2f(1000, 300)
+    glVertex2f(1500, 300)
+    glVertex2f(1500, 206)
+    glEnd()
+
+    glColor3ub(240, 10, 29)
+    glBegin(GL_QUADS)
+    glVertex2f(1200, 300)
+    glVertex2f(1200, 400)
+    glVertex2f(1300, 400)
+    glVertex2f(1300, 300)
+    glEnd()
+
+
     # M
     glColor3ub(235, 232, 52)
     glBegin(GL_LINE_LOOP)
@@ -503,8 +788,27 @@ def start():
     glVertex2f(900, 200)
     glEnd()
 
+def drawBitmapText1(string,x,y,z) :
+    global text
+    if text == True :
+        glRasterPos3f(x,y,z)
+        for karakter in string :
+            glColor3ub(0, 76, 207)
+            glutBitmapCharacter(gl.GLUT_BITMAP_TIMES_ROMAN_24,ord(karakter))
+    elif text == False :
+        glRasterPos3f(x,y,z)
+        for karakter in string :
+            glColor3ub(255,255,255)
+            glutBitmapCharacter(gl.GLUT_BITMAP_TIMES_ROMAN_24_,ord(karakter))
+
+# def text_score1():
+#     global text
+#     text = False
+#     drawBitmapText1(" " ,1300,600,0)
+#     drawBitmapText1("M" ,1300,600,0)
 
 def menu():
+    # text_score1()
     # M
     glColor3ub(235, 232, 52)
     glBegin(GL_LINE_LOOP)
@@ -623,7 +927,24 @@ def menu():
     glVertex2f(1200, 1150)
     glEnd()
 
+    #quit
+    # glPushMatrix()
+    # glColor3ub(255, 255, 0)
+    # glBegin(GL_POLYGON)
+    # glVertex2f(60,500)
+    # glVertex2f(20,460)
+    # glVertex2f(20,340)
+    # glVertex2f(60,300)
+    # glVertex2f(200,300)
+    # glVertex2f(240,340)
+    # glVertex2f(240,460)
+    # glVertex2f(200,500)
+    # glEnd()
+    # glPopMatrix()
+
+
     # Play out
+    
     glColor3ub(255, 255, 0)
     glBegin(GL_POLYGON)
     glVertex2f(600, 800)
@@ -640,6 +961,14 @@ def menu():
     glVertex2f(740, 640)
     glEnd()
 
+# def win():
+#     glColor3ub(66, 245, 96)
+#     glBegin(GL_POLYGON)
+#     glVertex2f(0, 750)
+#     glVertex2f(0, 0)
+#     glVertex2f(0, 600)
+#     glVertex2f(0, 600)
+#     glEnd()
 
 def on_click(button, state, x, y):
     global mode, nyawa
@@ -655,7 +984,6 @@ def on_click(button, state, x, y):
     elif mode == 2:
         if button == GLUT_RIGHT_BUTTON:
             nyawa = 0
-
 
 def display():
     global mode
@@ -748,7 +1076,7 @@ def update(value):
 def main():
     glutInit(sys.argv)
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
-    glutInitWindowSize(500, 500)
+    glutInitWindowSize(550, 500)
     glutInitWindowPosition(100, 100)
     glutCreateWindow("MAZE")
     glutDisplayFunc(display)
